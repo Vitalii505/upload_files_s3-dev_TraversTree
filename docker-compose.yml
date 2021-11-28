@@ -1,0 +1,14 @@
+version: '2.4'
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    image: test-ftp
+    container_name: test-ftp
+#    restart: always
+#    ports:
+#      - "3030:3030"
+
