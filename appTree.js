@@ -6,14 +6,13 @@ const Client = require('ftp');
 const client = new Client();
 
 const clientConnect = {
-    host: "192.168.1.5",
+    host: "*****",
     port: 21,
-    user: "alimov",
-    password: "123456",
+    user: "****",
+    password: "******",
 };
 const url = 'https://dev.prezentor.com/api/filearchive/sign_s3';
-const access_token = 'eyJraWQiOiIwVk9BSnM0dXY2cGJDalFsUjdiTUc1aWNoUG51M1J1STlWN2ZwNlk2M1pNPSIsImFsZyI6IlJTMjU2In0.eyJvcmlnaW5fanRpIjoiNGNmZTU0OWEtMjBmMS00ODY1LWI4MTQtNTM1Njc1NWFkMGY1Iiwic3ViIjoiMWU2NThiY2YtZWE2Yi00ODM5LWFmN2MtZTQyNjVmMDczMmNmIiwiZXZlbnRfaWQiOiJhZjUzZTU0Zi1jMTg5LTQyNTUtYmE4My03OGZhYTY5NGZjZGEiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNjM3NzY1NjA3LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9ocFNRenFEeWEiLCJleHAiOjE2MzgwNjM0NjIsImlhdCI6MTYzODA1OTg2MiwianRpIjoiN2Y0MzIzMzMtNjQ5Yi00MzY0LThlYWYtYzkwNTdmMzZiNzFmIiwiY2xpZW50X2lkIjoiNjdiNTN2bWhmN2hhcjNidmJzdGNidGhpZ2YiLCJ1c2VybmFtZSI6IjFlNjU4YmNmLWVhNmItNDgzOS1hZjdjLWU0MjY1ZjA3MzJjZiJ9.aHlZNGkzdIPv-HPdDl1ryv5yEbw8hkuZGk9zlD08lPBxmo1XQoenDht7P2swARKipYpgOBHkrceXFV1W47NP8iUwOyQF-_vZ3A1NnYka9lQML1AdyuG0Ax3FWWoCDkoZo83987c9ZLXT4CWM1eLaP9lKM7yQS10EXBDZkrlWjELlwv-4qeoqahQ4M4eB3xqHGX594nviKFdHnW1LAruHX22IFU4-36554TJnG4risldVvR7rppQKgMi0aGmjPNhq-P2fZO4I6xHBsZKZFScW7YGzQf4tD0fcDtbAz_VXg4rvFteo9YRFIQsSuR5vW2g3uJQ7wpXyKhh1fh-Pt8dDCQ';
-
+const access_token = '*****'
 
 function fileContentType(filename) {
     return mime.getType(filename)
@@ -36,7 +35,7 @@ function postFileArchive(fileName, parent, pathLocal) {
             // console.log(res.data)
             const formData = new FormData();
             formData.append('key', `staging/presentations/${parent}${res.data.s3Filename}`)
-            formData.append('AWSAccessKeyId', 'AKIAJRFHUH4JD6KVWEVQ')
+            formData.append('AWSAccessKeyId', '*********')
             formData.append('acl', 'public-read')
             formData.append('policy', res.data.s3Policy)
             formData.append('signature', res.data.s3Signature)
@@ -151,7 +150,7 @@ async function downloadFileFTPserver() {
     let downloadList = [];
     let pathFtp = '/';
     let pathLocal = './upload/';
-    const s3Parent = '619d57563d16770007aaabcc';
+    const s3Parent = '*****d57563d16770007a*****';
     client.on('ready', () => {
         client.list(pathFtp, async (err, list) => {
             if (err) throw err;
